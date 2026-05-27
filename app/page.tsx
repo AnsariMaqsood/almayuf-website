@@ -17,36 +17,39 @@ export default function Home() {
         </nav>
       </header>
 
-      {/* Hero Section */}
-      <section
-  className="relative h-[100vh] flex flex-col justify-center items-center text-center px-6 bg-cover bg-center"
+{/* Hero Section */}
+<section
+  className="relative h-screen bg-cover bg-center flex items-center justify-center text-center"
   style={{
-    backgroundImage: "url('/hero.jpeg')",
+    backgroundImage:
+      "linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/hero.jpeg')",
   }}
 >
-  
-  {/* Dark Overlay */}
-  <div className="absolute inset-0 bg-black/70"></div>
-
-  {/* Content */}
-  <div className="relative z-10">
-    <p className="uppercase tracking-[6px] text-gray-300 mb-4">
+  <div className="max-w-5xl px-6">
+    <p className="uppercase tracking-[6px] text-gray-300 mb-6">
       Smart Infrastructure & IT Solutions
     </p>
 
-    <h2 className="text-5xl md:text-7xl font-bold leading-tight max-w-5xl">
+    <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-8">
       Building Modern Digital &
+      <br />
       Infrastructure Solutions
-    </h2>
+    </h1>
 
-    <p className="mt-6 text-gray-300 max-w-2xl text-lg mx-auto">
-      Delivering enterprise-grade Solutions, operations,
-      cloud smart infrastructure systems.
+    <p className="text-gray-300 text-lg md:text-xl mb-10 max-w-3xl mx-auto">
+      Delivering enterprise-grade IT services, warehouse operations,
+      cloud solutions, and smart infrastructure systems.
     </p>
 
-    <button className="mt-10 px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-gray-300 transition">
-      Explore Services
-    </button>
+    <div className="flex gap-4 justify-center">
+      <button className="bg-white text-black px-8 py-4 rounded-full font-semibold hover:bg-gray-300 transition">
+        Explore Services
+      </button>
+
+      <button className="border border-white px-8 py-4 rounded-full hover:bg-white hover:text-black transition">
+        Contact Us
+      </button>
+    </div>
   </div>
 </section>
 
