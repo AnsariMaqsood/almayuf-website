@@ -17,7 +17,7 @@ export default function Home() {
         </nav>
       </header>
 
-{/* Hero Section */}
+      {/* Hero Section */}
 <section
   className="relative h-screen bg-cover bg-center flex items-center justify-center text-center"
   style={{
@@ -52,49 +52,6 @@ export default function Home() {
     </div>
   </div>
 </section>
-
-      {/* Services */}
-      <section className="px-8 py-24 bg-zinc-950">
-        <div className="max-w-7xl mx-auto">
-          <h3 className="text-4xl font-bold mb-16 text-center">
-            Our Services
-          </h3>
-
-          <div className="grid md:grid-cols-3 gap-8">
-
-            <div className="bg-zinc-900 p-8 rounded-2xl border border-zinc-800">
-              <h4 className="text-2xl font-semibold mb-4">
-                IT Infrastructure
-              </h4>
-              <p className="text-gray-400">
-                Enterprise IT support, end-user computing,
-                networking, and smart office infrastructure.
-              </p>
-            </div>
-
-            <div className="bg-zinc-900 p-8 rounded-2xl border border-zinc-800">
-              <h4 className="text-2xl font-semibold mb-4">
-                Cloud Solutions
-              </h4>
-              <p className="text-gray-400">
-                AWS cloud architecture, deployment,
-                monitoring, and scalable infrastructure solutions.
-              </p>
-            </div>
-
-            <div className="bg-zinc-900 p-8 rounded-2xl border border-zinc-800">
-              <h4 className="text-2xl font-semibold mb-4">
-                Facility Operations
-              </h4>
-              <p className="text-gray-400">
-                Smart warehouse operations, ticketing systems,
-                maintenance management, and automation solutions.
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </section>
 
       {/* Footer */}
       <footer className="border-t border-zinc-800 py-10 text-center text-gray-500">
