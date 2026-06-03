@@ -308,7 +308,7 @@ export default function Home() {
         <div className="space-y-4 text-lg">
 
           <p>
-            📞 +966 54 706 2959
+            📞 +966 569 053 122
           </p>
 
           <p>
@@ -322,7 +322,7 @@ export default function Home() {
         </div>
 
         <a
-          href="https://wa.me/966547062959"
+          href="https://wa.me/966569053122"
           target="_blank"
           className="inline-block mt-8 bg-yellow-500 text-black px-8 py-4 rounded-full font-semibold"
         >
@@ -372,7 +372,7 @@ export default function Home() {
   </p>
 </footer>
 <a
- href="https://wa.me/966547062959"
+ href="https://wa.me/966569053122"
  target="_blank"
  className="fixed bottom-6 right-6 bg-green-500 text-white px-6 py-4 rounded-full shadow-xl z-50"
 >
