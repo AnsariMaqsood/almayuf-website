@@ -27,6 +27,24 @@ export default function Home() {
     return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
 
+  const [brandImages, setBrandImages] = useState<string[]>([]);
+
+  useEffect(() => {
+    let mounted = true;
+    fetch("/api/brands")
+      .then((r) => r.json())
+      .then((data) => {
+        if (!mounted) return;
+        if (data?.images && Array.isArray(data.images) && data.images.length > 0) {
+          setBrandImages(data.images);
+        }
+      })
+      .catch(() => {});
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
   function handleNavClick(id: string, ev?: React.MouseEvent) {
     ev?.preventDefault();
     const el = document.getElementById(id);
@@ -275,26 +293,31 @@ export default function Home() {
   </div>
 </section>
 {/* Brands Section */}
-<section id="brands" className="py-24 bg-white">
-  <div className="max-w-7xl mx-auto px-6">
+<section id="brands" className="py-12 md:py-24 bg-white">
+  <div className="max-w-5xl mx-auto px-6">
 
-    <div className="text-center mb-16">
-      <h2 className="text-5xl font-bold text-[#0d2f6f] mb-4">
+    <div className="text-center mb-8 md:mb-12">
+      <h2 className="text-4xl md:text-5xl font-bold text-[#0d2f6f] mb-4">
         Brands We Deal In
       </h2>
 
-      <p className="text-xl text-gray-600">
+      <p className="text-lg md:text-xl text-gray-600">
         Trusted Global Industrial & Automation Partners
       </p>
     </div>
 
-<div className="bg-gradient-to-b from-white to-gray-50 rounded-3xl shadow-2xl p-10 border">
-  <img
-    src="/brands/brand.png"
-    alt="Brands We Deal In"
-    className="w-full mx-auto"
-  />
-</div>
+    <div className="bg-gray-50 rounded-2xl shadow-lg p-6 md:p-10 border border-gray-100">
+      <div className="max-w-4xl mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 items-center">
+          {/* Replace these entries with actual brand file names in `/public/brands/` */}
+          {(brandImages.length ? brandImages : Array.from({ length: 5 }).map(() => "/brands/brand.png")).map((src, i) => (
+            <div key={i} className="bg-white p-4 rounded-xl flex items-center justify-center border shadow-sm">
+              <img src={src} alt={`brand-${i}`} className="max-h-20 md:max-h-28 object-contain" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
 
   </div>
 </section>
