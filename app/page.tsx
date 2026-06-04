@@ -39,7 +39,7 @@ export default function Home() {
       <section
         className="relative h-screen flex items-center justify-center text-center"
         style={{
-          backgroundImage: "url('/hero.jpeg')",
+          backgroundImage: "url('/hero.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
