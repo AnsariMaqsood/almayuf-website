@@ -1,43 +1,113 @@
+"use client";
+
 import Image from "next/image";
+import React, { useEffect, useState } from "react";
 
 export default function Home() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [active, setActive] = useState<string>("home");
+
+  const navItems = [
+    { id: "about", label: "About" },
+    { id: "services", label: "Services" },
+    { id: "brands", label: "Brands" },
+    { id: "projects", label: "Projects" },
+    { id: "contact", label: "Contact" },
+  ];
+
+  useEffect(() => {
+    const onHashChange = () => {
+      const hash = window.location.hash.replace("#", "");
+      if (hash) setActive(hash);
+    };
+
+    // set initial active based on hash
+    onHashChange();
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
+
+  function handleNavClick(id: string, ev?: React.MouseEvent) {
+    ev?.preventDefault();
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    setActive(id);
+    setMobileOpen(false);
+    // update hash without jumping
+    history.replaceState(null, "", `#${id}`);
+  }
+
   return (
     <main className="bg-white text-slate-800">
 
       {/* Navbar */}
       <header className="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 shadow-sm">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-6 py-2 flex justify-between items-center">
 
           <div className="flex items-center gap-3">
             <Image
               src="/logo.png"
               alt="Almayuf Logo"
-              width={55}
-              height={55}
+              width={48}
+              height={48}
             />
             <div>
-              <h1 className="font-bold text-xl text-[#0F2A5A]">
+              <h1 className="font-bold text-lg text-[#0F2A5A]">
                 ALMAYUF
               </h1>
-              <p className="text-xs text-gray-500">
-                Trading & Contracting Est.
-              </p>
+              <p className="text-xs text-gray-500">Trading & Contracting Est.</p>
             </div>
           </div>
 
-          <nav className="hidden md:flex gap-8 font-medium">
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#brands">Brands</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
+          {/* Desktop nav */}
+          <nav className="hidden md:flex gap-8 font-medium items-center">
+            {navItems.map((item) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                onClick={(e) => handleNavClick(item.id, e)}
+                className="px-1 pb-1 flex flex-col items-center"
+              >
+                <span className="transition-colors duration-200">{item.label}</span>
+                <span className={`block h-[2px] bg-yellow-400 origin-left transition-transform duration-300 ${active === item.id ? "scale-x-100" : "scale-x-0"}`}></span>
+              </a>
+            ))}
           </nav>
+
+          {/* Mobile hamburger */}
+          <button
+            aria-label="Toggle menu"
+            className="md:hidden flex flex-col gap-1.5 p-2"
+            onClick={() => setMobileOpen((s) => !s)}
+          >
+            <span className={`block w-6 h-0.5 bg-slate-800 transition-all duration-300 ${mobileOpen ? "translate-y-1 rotate-45" : ""}`}></span>
+            <span className={`block w-6 h-0.5 bg-slate-800 transition-all duration-300 ${mobileOpen ? "opacity-0" : ""}`}></span>
+            <span className={`block w-6 h-0.5 bg-slate-800 transition-all duration-300 ${mobileOpen ? "-translate-y-1 -rotate-45" : ""}`}></span>
+          </button>
+
+        </div>
+
+        {/* Mobile nav overlay */}
+        <div className={`md:hidden bg-white/95 backdrop-blur-sm w-full absolute top-full left-0 z-40 shadow-md transform transition-all duration-300 ${mobileOpen ? "translate-y-0 opacity-100" : "-translate-y-3 opacity-0 pointer-events-none"}`}>
+          <div className="flex flex-col px-6 py-4 gap-3">
+            {navItems.map((item) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                onClick={(e) => handleNavClick(item.id, e)}
+                className={`py-3 flex flex-col items-start gap-1 transition-colors duration-200 ${active === item.id ? "text-yellow-600" : "text-slate-800"}`}
+              >
+                <span>{item.label}</span>
+                <span className={`block h-[2px] bg-yellow-400 origin-left transition-transform duration-300 ${active === item.id ? "scale-x-100" : "scale-x-0"}`}></span>
+              </a>
+            ))}
+          </div>
         </div>
       </header>
 
       {/* Hero Section */}
       <section
-        className="relative h-screen flex items-center justify-center text-center"
+        className="relative min-h-screen pt-16 flex items-center justify-center text-center"
         style={{
           backgroundImage: "url('/hero.png')",
           backgroundSize: "cover",
