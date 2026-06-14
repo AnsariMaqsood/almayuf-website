@@ -47,7 +47,7 @@ const SERVICES = [
   {
     title: "Industrial Material Supply & Trading",
     items: ["Control & Power Cables", "PLC, HMI & SCADA Products", "VFDs & Soft Starters", "Sensors & Instruments", "MCC & Control Panels", "MEP Materials"],
-    img: "/hero.png",
+    img: "/project6.jpg",
     href: "#services",
   },
 ];
@@ -62,10 +62,10 @@ const STATS = [
 const PROJECTS = [
   { title: "Industrial Substation", location: "Jubail, Saudi Arabia", img: "/project1.jpg" },
   { title: "Factory Automation", location: "Dammam, Saudi Arabia",  img: "/project2.jpg" },
-  { title: "Fiber Optic Network", location: "Riyadh, Saudi Arabia",  img: "/project3.jpg" },
-  { title: "MCC Panel Installation", location: "Yanbu, Saudi Arabia", img: "/project4.jpg" },
+  { title: "Fiber Optic Network", location: "Riyadh, Saudi Arabia",  img: "/project8.jpg" },
+  { title: "MCC Panel Installation", location: "Yanbu, Saudi Arabia", img: "/project7.jpg" },
   { title: "Process Piping Works", location: "Dhahran, Saudi Arabia", img: "/project5.jpg" },
-  { title: "Data Center Cabling", location: "Khobar, Saudi Arabia",  img: "/hero.png"     },
+  { title: "Data Center Cabling", location: "Khobar, Saudi Arabia",  img: "/project4.jpg"     },
 ];
 
 const TESTIMONIALS = [
