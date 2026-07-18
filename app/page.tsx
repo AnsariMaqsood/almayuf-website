@@ -938,7 +938,7 @@ export default function Home() {
             </div>
             <div style={{textAlign:"center"}}>
               <div style={{fontSize:"13px",color:"#999",marginBottom:"4px",letterSpacing:"1px"}}>EMAIL</div>
-              <a href="mailto:ansari.ali@almayuf.com" style={{color:"#111",fontWeight:"700",fontSize:"16px",textDecoration:"none"}}>ansari.ali@almayuf.com</a>
+              <a href="mailto:info@almayuf.com" style={{color:"#111",fontWeight:"700",fontSize:"16px",textDecoration:"none"}}>info@almayuf.com</a>
             </div>
             <div style={{textAlign:"center"}}>
               <div style={{fontSize:"13px",color:"#999",marginBottom:"4px",letterSpacing:"1px"}}>WHATSAPP</div>
@@ -1000,7 +1000,7 @@ export default function Home() {
                 </div>
                 <div className="footer-contact-line">
                   <svg viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                  <a href="mailto:ansari.ali@almayuf.com" style={{color:"rgba(255,255,255,.7)",textDecoration:"none"}}>ansari.ali@almayuf.com</a>
+                  <a href="mailto:info@almayuf.com" style={{color:"rgba(255,255,255,.7)",textDecoration:"none"}}>info@almayuf.com</a>
                 </div>
                 <a href="#contact" onClick={(e)=>handleNavClick("contact",e)} style={{
                   display:"inline-block",marginTop:"12px",
